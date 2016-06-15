@@ -1,0 +1,117 @@
+#root_node {
+	-fx-background-radius: 20;
+	-fx-background-image: url(../resources/black_plastic.jpg);
+	-fx-background-position: center;
+	-fx-border-radius: 20;
+	-fx-border-width:0;
+	-fx-border-color:black;		
+}
+
+#anchorContent {
+	-fx-background-radius: 20;
+	-fx-border-radius: 20;
+	-fx-border-width:0;
+	-fx-border-color:black;
+}
+
+#panelContent {
+	-fx-background-image: url(../resources/black_plastic_2.jpg);
+	-fx-background-position: center;
+}
+
+#lblTitleRound {
+	-fx-font-family: "Arial";
+	-fx-font-weight: bold;
+	-fx-font-size: 40;
+	-fx-text-fill: #FFFFFF;
+}
+
+#lblRound {
+	-fx-font-family: "SF Digital Readout";
+	-fx-font-size: 400;
+	-fx-text-fill: #B30000;
+}
+
+#lblBckRound {
+	-fx-font-family: "SF Digital Readout";
+	-fx-font-size: 400;
+	-fx-text-fill: #1A0000;
+}
+
+#lblTitleTimer {
+	-fx-font-family: "Arial";
+	-fx-font-weight: bold;
+	-fx-font-size: 40;
+	-fx-text-fill: #FFFFFF;
+}
+
+#lblTimer {
+	-fx-font-family: "SF Digital Readout";
+	-fx-font-size: 300;
+	-fx-text-fill: #B30000;
+}
+
+#lblBckTimer {
+	-fx-font-family: "SF Digital Readout";
+	-fx-font-size: 300;
+	-fx-text-fill: #1A0000;
+}
+
+#lblTitleTotal {
+	-fx-font-family: "Arial";
+	-fx-font-weight: bold;
+	-fx-font-size: 40;
+	-fx-text-fill: #FFFFFF;
+}
+
+#lblTotal {
+	-fx-font-family: "SF Digital Readout";
+	-fx-font-size: 90;
+	-fx-font-weight: bold;
+	-fx-text-fill: #B30000;
+}
+
+#lblBckTotal {
+	-fx-font-family: "SF Digital Readout";
+	-fx-font-size: 90;
+	-fx-font-weight: bold;
+	-fx-text-fill: #1A0000;
+}
+
+.buttonPanel {	
+	-fx-border-radius: 20;
+	-fx-background-color: #f2f2f2;
+	-fx-background-radius: 20;
+	-fx-font-family: Arial;
+	-fx-font-size: 15;
+	-fx-font-weight: bold;
+	-fx-text-fill: #1A0000;
+}
+
+.light_red_on{
+	-fx-fill: radial-gradient(focus-distance 0% , center 50% 50% , radius 45% , #ffcccc, #ff0000);
+	-fx-effect: dropshadow(two-pass-box,rgba(255,0,0,0.3),5,50,0,0);	
+}
+
+.light_red_off{
+	-fx-fill: radial-gradient(focus-distance 0% , center 50% 50% , radius 45% , #660000, #1a0000);	
+}
+
+.light_yellow_on{
+	-fx-fill: radial-gradient(focus-distance 0% , center 50% 50% , radius 45% , #ffffcc, #ffff00);
+	-fx-effect: dropshadow(two-pass-box,rgba(255,255,0,0.1),5,50,0,0);	
+}
+
+.light_yellow_off{
+	-fx-fill: radial-gradient(focus-distance 0% , center 50% 50% , radius 45% , #808000, #333300);	
+}
+
+.light_green_on{
+	-fx-fill: radial-gradient(focus-distance 0% , center 50% 50% , radius 45% , #ccffcc, #00ff00);
+	-fx-effect: dropshadow(two-pass-box,rgba(0,255,0,0.1),5,50,0,0);	
+}
+
+.light_green_off{
+	-fx-fill: radial-gradient(focus-distance 0% , center 50% 50% , radius 45% , #006600, #001a00);	
+}
+
