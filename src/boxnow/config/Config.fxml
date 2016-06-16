@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="400.0">
+         <children>
+            <Text layoutX="25.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="General Settings" />
+            <Text layoutX="25.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="left_text" text="Languaje" />
+            <Text layoutX="25.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="left_text" text="Sound" />
+            <TextField fx:id="inputLang" editable="FALSE" layoutX="120.0" layoutY="70.0" prefWidth="30" text="EN" />
+            <TextField fx:id="inputSound" layoutX="120.0" layoutY="110.0" prefWidth="60" text="Real" />
+            <Text layoutX="25.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Timers Settings" />
+            <TabPane layoutX="20.0" layoutY="200.0" prefHeight="400.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+              <tabs>
+                <Tab text="Timer 1">
+                     <content>
+                        <AnchorPane prefHeight="300.0" prefWidth="200.0" styleClass="anchorTab">
+                           <children>
+                              <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="timerLabel" text="Num. of Rounds" />
+                              <Button layoutX="200.0" prefWidth="40.0" layoutY="23.0" mnemonicParsing="false" text="+" />
+                              <TextField editable="false" layoutX="250.0" layoutY="23.0" prefHeight="25.0" prefWidth="40.0" />
+                              <Button layoutX="300.0" prefWidth="40.0" layoutY="23.0" mnemonicParsing="false" text="-" />                              
+                           </children>
+                        </AnchorPane>
+                     </content></Tab>
+                <Tab text="Timer 2" />
+                <Tab text="Timer 3" />
+                <Tab text="Timer 4" />
+                <Tab text="Timer 5" />
+                <Tab text="Timer 6" />
+              </tabs>
+            </TabPane>            
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

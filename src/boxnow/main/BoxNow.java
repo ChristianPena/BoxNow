@@ -28,7 +28,6 @@ public class BoxNow extends Application{
 		Rectangle rect = new Rectangle(1200,400);
 		rect.setArcHeight(60.0);
 		rect.setArcWidth(60.0);
-
 		root.setClip(rect);
 		Scene scene = new Scene(root,1200,400);
 		stage.initStyle(StageStyle.TRANSPARENT);

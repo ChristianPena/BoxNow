@@ -286,12 +286,90 @@ public class BoxNowController implements Initializable {
 		else
 			lblRound.setText(String.valueOf(getCurrRound()));
 	}
+	
+	@FXML
+	public void actionTimer1(ActionEvent event){
+		if(!getStatus().equals("running")){
+			setTimer("timer1");
+			System.out.println("Timer 1 selected");
+			lblTotal.setText("SE LE  1");
+			setTimerProperties();
+			setStatus("initial");
+		} else {
+			System.out.println("It's running! first stop the timer!");
+		}		
+	}
+	
+	@FXML
+	public void actionTimer2(ActionEvent event){
+		if(!getStatus().equals("running")){
+			setTimer("timer2");
+			System.out.println("Timer 2 selected");
+			lblTotal.setText("SE LE  2");
+			setTimerProperties();
+			setStatus("initial");
+		} else {
+			System.out.println("It's running! first stop the timer!");
+		}		
+	}
+	
+	@FXML
+	public void actionTimer3(ActionEvent event){
+		if(!getStatus().equals("running")){
+			setTimer("timer3");
+			System.out.println("Timer 3 selected");
+			lblTotal.setText("SE LE  3");
+			setTimerProperties();
+			setStatus("initial");
+		} else {
+			System.out.println("It's running! first stop the timer!");
+		}		
+	}
+	
+	@FXML
+	public void actionTimer4(ActionEvent event){
+		if(!getStatus().equals("running")){	
+			setTimer("timer4");
+			System.out.println("Timer 4 selected");
+			lblTotal.setText("SE LE  4");
+			setTimerProperties();
+			setStatus("initial");
+		} else {
+			System.out.println("It's running! first stop the timer!");
+		}
+	}
+	
+	@FXML
+	public void actionTimer5(ActionEvent event){
+		if(!getStatus().equals("running")){	
+			setTimer("timer5");
+			System.out.println("Timer 5 selected");
+			lblTotal.setText("SE LE  5");
+			setTimerProperties();
+			setStatus("initial");
+		} else {
+			System.out.println("It's running! first stop the timer!");
+		}
+	}
+	
+	@FXML
+	public void actionTimer6(ActionEvent event){
+		if(!getStatus().equals("running")){		
+			setTimer("timer6");
+			System.out.println("Timer 6 selected");
+			lblTotal.setText("SE LE  6");
+			setTimerProperties();
+			setStatus("initial");		
+		} else {
+			System.out.println("It's running! first stop the timer!");
+		}
+	}
 
 	@FXML
 	public void actionStart(ActionEvent event){
 		
 		if(getStatus().equals("initial")){		
-			System.out.println("Starting Timer 1");
+			System.out.println("Starting " + getTimer());
 			setStatus("running");		
 			setCurrRound(0);
 			setCurrTime(0);
@@ -339,6 +417,23 @@ public class BoxNowController implements Initializable {
 		lblTotal.setText("00:00:00");
 		getTimeline().stop();
 	}
+
+	@FXML
+	public void actionConfig(ActionEvent event){
+		System.out.println("Display config");
+		getConfig().displayConfig();		
+	}
+	
+	@FXML
+	public void actionReset(ActionEvent event){
+		System.out.println("Reset");
+		setCurrTotal(0);
+		setCurrTime(0);
+		setCurrRound(0);
+		lblRound.setText(" 0");
+		lblTimer.setText("0:00");
+		lblTotal.setText("00:00:00");
+	}
 	
 	@FXML
 	public void actionOff(ActionEvent event){
@@ -346,9 +441,7 @@ public class BoxNowController implements Initializable {
 		System.exit(0);		
 	}
 	
-	@FXML
-	public void actionConfig(ActionEvent event){
-	}
+
 	
 	public void turnOnRed(){
 		lightRed.getStyleClass().removeAll("light_red_off");

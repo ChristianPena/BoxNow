@@ -1,0 +1,62 @@
+#config_node {
+	-fx-background-radius: 20;
+	-fx-background-image: url(../resources/black_plastic.jpg);
+	-fx-background-position: center;
+	-fx-border-radius: 20;
+	-fx-border-width:0;
+	-fx-border-color:black;	
+}
+
+.title {
+	-fx-fill: #FFFFFF;
+	-fx-font-size: 25;
+	-fx-font-weight: bold;
+}
+
+.left_text {
+	-fx-fill: #FFFFFF;
+	-fx-font-size: 20;
+}
+.tab-header-area {
+}
+
+.header-region {
+}
+
+.tab-header-background {
+	-fx-background-color: transparent;
+}
+
+.tab:selected {
+	-fx-background-color: #000000;
+	-fx-border-color: #000000;
+	-fx-border-width: 1px;
+	-fx-border-radius: 20 20 0 0; 
+}
+
+.tab {
+	-fx-background-color: #E6E6E6;
+	-fx-border-color: #E6E6E6;
+	-fx-border-width: 1px;
+	-fx-border-radius: 20 20 0 0; 
+}
+
+.tab:selected .tab-label {
+	-fx-text-fill: #FFFFFF;	
+}
+
+.tab-label {
+	-fx-text-fill: #939393;
+	-fx-font-weight: bold;
+}
+
+.anchorTab {
+	-fx-background-image: url(../resources/black_plastic_2.jpg);
+	-fx-background-position: center;
+}
+
+.timerLabel {
+	-fx-fill: #FFF;
+	-fx-font-size: 18;
+	-fx-font-weight: bold;
+}

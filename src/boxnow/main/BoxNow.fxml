@@ -20,26 +20,26 @@
                	  <Circle fx:id="lightGreen" fill="#003300" layoutX="240.0" layoutY="80.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" styleClass="light_green_off" />
                
 
-                  <Button layoutX="15.0" layoutY="155.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 1" AnchorPane.leftAnchor="15.0" />
-                  <Button layoutX="110.0" layoutY="155.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 2" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
-                  <Button layoutX="230.0" layoutY="155.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 3" AnchorPane.rightAnchor="15.0" />
+                  <Button layoutX="15.0" layoutY="155.0" mnemonicParsing="false"  onAction="#actionTimer1" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 1" AnchorPane.leftAnchor="15.0" />
+                  <Button layoutX="110.0" layoutY="155.0" mnemonicParsing="false" onAction="#actionTimer2" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 2" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
+                  <Button layoutX="230.0" layoutY="155.0" mnemonicParsing="false" onAction="#actionTimer3" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 3" AnchorPane.rightAnchor="15.0" />
                   
-                  <Button layoutX="15.0" layoutY="220.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 4" AnchorPane.leftAnchor="15.0" />
-                  <Button layoutX="110.0" layoutY="220.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 5" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
-                  <Button layoutX="230.0" layoutY="220.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 6" AnchorPane.rightAnchor="15.0" />
+                  <Button layoutX="15.0" layoutY="220.0" mnemonicParsing="false"  onAction="#actionTimer4" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 4" AnchorPane.leftAnchor="15.0" />
+                  <Button layoutX="110.0" layoutY="220.0" mnemonicParsing="false" onAction="#actionTimer5" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 5" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
+                  <Button layoutX="230.0" layoutY="220.0" mnemonicParsing="false" onAction="#actionTimer6" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 6" AnchorPane.rightAnchor="15.0" />
                   
                   <Button layoutX="15.0" layoutY="285.0" mnemonicParsing="false" onAction="#actionStart" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="START" AnchorPane.leftAnchor="15.0" />
                   <Button layoutX="110.0" layoutY="285.0" mnemonicParsing="false" onAction="#actionPause" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="PAUSE" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
                   <Button layoutX="230.0" layoutY="285.0" mnemonicParsing="false" onAction="#actionStop" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="STOP" AnchorPane.rightAnchor="15.0" />
                   
                   <Button layoutX="15.0" layoutY="325.0" mnemonicParsing="false" onAction="#actionConfig" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="CONFIG" AnchorPane.leftAnchor="15.0" />
-                  <Button layoutX="110.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="RESET" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
+                  <Button layoutX="110.0" layoutY="325.0" mnemonicParsing="false" onAction="#actionReset" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="RESET" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
                   <Button layoutX="230.0" layoutY="325.0" mnemonicParsing="false" onAction="#actionOff" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="OFF" AnchorPane.rightAnchor="15.0" />
             </children></AnchorPane>
             
             <Label fx:id="lblTitleRound" layoutX="30.0" layoutY="10.0" prefHeight="40.0" prefWidth="312.0" text="ROUND" />
             <Label fx:id="lblBckRound" layoutX="30.0" layoutY="40.0" prefHeight="327.0" prefWidth="312.0" text="88" />
-            <Label fx:id="lblRound" layoutX="30.0" layoutY="40.0" prefHeight="327.0" prefWidth="312.0"/>
+            <Label fx:id="lblRound" layoutX="30.0" layoutY="40.0" prefHeight="327.0" prefWidth="312.0" />
             
             <Label fx:id="lblTitleTimer" layoutX="700.0" layoutY="10.0" prefHeight="40.0" prefWidth="312.0" text="TIMER" />
             <Label fx:id="lblBckTimer" layoutX="700.0" layoutY="19.0" prefHeight="327.0" prefWidth="450.0" text="8:88" />
