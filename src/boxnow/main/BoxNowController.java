@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -54,6 +55,10 @@ public class BoxNowController implements Initializable {
 	private int currTime;
 	private int currRound;
 	private int currTotal;
+	
+	private AudioClip clipStart;
+	private AudioClip clipWarning;
+	private AudioClip clipEnd;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {		
@@ -64,6 +69,8 @@ public class BoxNowController implements Initializable {
 		setConfig(new Config());
 		getConfig().getPropertiesFromFile();
 		
+		setAudios();
+		
 		setTimer("timer1");
 		setTimerProperties();
 		setStatus("initial");
@@ -72,6 +79,14 @@ public class BoxNowController implements Initializable {
 				
 	}
 	
+	private void setAudios() {
+				
+		setClipStart(new AudioClip(getClass().getResource("/boxnow/resources/sounds/real/start_round.wav").toString()));
+		setClipEnd(new AudioClip(getClass().getResource("/boxnow/resources/sounds/real/end_round.wav").toString()));
+		setClipWarning(new AudioClip(getClass().getResource("/boxnow/resources/sounds/real/warning.mp3").toString()));
+		
+	}
+
 	private void setTimerProperties() {
 		
 		setNumRounds(Integer.parseInt(getConfig().getConfigProperties().getProperty(getTimer() + ".numberround")));
@@ -94,10 +109,11 @@ public class BoxNowController implements Initializable {
 		
 		final Timeline timeline = new Timeline(
 			new KeyFrame(Duration.ZERO, new EventHandler<ActionEvent>(){
+				boolean ended = false;
+				int i = 0;
 				@Override
-				public void handle(ActionEvent event){
+				public void handle(ActionEvent event){					
 					
-					setCurrentTime();
 					setTotalTime();
 					
 					switch(getCurrent()){					
@@ -109,6 +125,7 @@ public class BoxNowController implements Initializable {
 							setCurrTime(0);
 							turnOnGreen();
 							turnOffRed();
+							getClipStart().play();
 						}
 						break;
 						
@@ -120,11 +137,11 @@ public class BoxNowController implements Initializable {
 							turnOffYellow();
 							turnOnRed();
 							if(getCurrRound() == getNumRounds()){
-								turnOnGreen();
-								turnOnYellow();
-								getTimeline().stop();
+								ended = true;
 							}
+							getClipEnd().play();
 						} else if(getCurrTime() == getWarning()){
+							getClipWarning().play();
 							turnOnYellow();
 						}						
 						break;
@@ -135,13 +152,73 @@ public class BoxNowController implements Initializable {
 							setCurrentRound();
 							setCurrTime(0);
 							turnOnGreen();
-							turnOffRed();							
+							turnOffRed();
+							getClipStart().play();
 						}
 						break;
 					}
 					
-					setCurrTime(getCurrTime() + 1);
-					setCurrTotal(getCurrTotal() + 1);
+					setCurrentTime();
+					
+					if(!ended){
+						setCurrTime(getCurrTime() + 1);
+						setCurrTotal(getCurrTotal() + 1);					
+					} else {					
+						
+						if(i == 0){
+							setCurrentTime();
+							setCurrentRound();
+							turnOnRed();
+							turnOnYellow();
+							turnOnGreen();							
+							
+						} else if(i == 1){
+							lblTimer.setText("");
+							lblRound.setText("");
+							turnOffRed();
+							turnOffYellow();
+							turnOffGreen();
+							
+						} else if(i == 2){
+							setCurrentTime();
+							setCurrentRound();
+							turnOnRed();
+							turnOnYellow();
+							turnOnGreen();
+							
+						} else if(i == 4){
+							lblTimer.setText("");
+							lblRound.setText("");
+							turnOffRed();
+							turnOffYellow();
+							turnOffGreen();
+							
+						} else if(i == 5){
+							setCurrentTime();
+							setCurrentRound();
+							turnOnRed();
+							turnOnYellow();
+							turnOnGreen();
+							
+						} else if(i == 6){
+							lblTimer.setText("");
+							lblRound.setText("");
+							turnOffRed();
+							turnOffYellow();
+							turnOffGreen();
+							
+						} else if(i == 7){
+							setCurrentTime();
+							setCurrentRound();
+							turnOnRed();
+							turnOnYellow();
+							turnOnGreen();	
+							setStatus("initial");
+							ended = false;
+							getTimeline().stop();
+						}
+						i++;
+					}					
 														
 				}
 			}), new KeyFrame(Duration.seconds(1)));
@@ -212,26 +289,55 @@ public class BoxNowController implements Initializable {
 
 	@FXML
 	public void actionStart(ActionEvent event){
-		System.out.println("Starting Timer 1");
-				
-		setCurrRound(0);
-		setCurrTime(0);
-		setCurrTotal(0);
-		setStatus("Play");
 		
-		if(getPreparation()>0){
-			setCurrent("PREPARATION");
-			turnOnRed();
+		if(getStatus().equals("initial")){		
+			System.out.println("Starting Timer 1");
+			setStatus("running");		
+			setCurrRound(0);
+			setCurrTime(0);
+			setCurrTotal(0);		
+			
+			if(getPreparation()>0){
+				setCurrent("PREPARATION");
+				turnOnRed();
+				turnOffGreen();
+				turnOffYellow();
+			} else {
+				setCurrRound(1);			
+				setCurrent("ROUND");
+				turnOnGreen();
+				turnOffRed();
+				turnOffYellow();
+			}		
+			lblRound.setText(" " + getCurrRound());
+			lblTimer.setText("0:00");
+			lblTotal.setText("00:00:00");
+			getTimeline().play();
 		} else {
-			setCurrRound(1);			
-			setCurrent("ROUND");
-			turnOnGreen();
-		}		
-		lblRound.setText(" " + getCurrRound());
+			setStatus("running");
+			getTimeline().play();
+		}	
+		
+	}
+	
+	@FXML
+	public void actionPause(ActionEvent event){
+		System.out.println("Paused");
+		setStatus("paused");
+		getTimeline().pause();
+	}
+	
+	@FXML
+	public void actionStop(ActionEvent event){
+		System.out.println("Stopped");
+		setStatus("initial");
+		setCurrTotal(0);
+		setCurrTime(0);
+		setCurrRound(0);
+		lblRound.setText(" 0");
 		lblTimer.setText("0:00");
 		lblTotal.setText("00:00:00");
-		getTimeline().play();		
-		
+		getTimeline().stop();
 	}
 	
 	@FXML
@@ -245,32 +351,32 @@ public class BoxNowController implements Initializable {
 	}
 	
 	public void turnOnRed(){
-		lightRed.getStyleClass().remove("light_red_off");
+		lightRed.getStyleClass().removeAll("light_red_off");
 		lightRed.getStyleClass().add("light_red_on");
 	}
 	
 	public void turnOffRed(){
-		lightRed.getStyleClass().remove("light_red_on");
+		lightRed.getStyleClass().removeAll("light_red_on");
 		lightRed.getStyleClass().add("light_red_off");
 	}
 	
 	public void turnOnYellow(){
-		lightYellow.getStyleClass().remove("light_yellow_off");
+		lightYellow.getStyleClass().removeAll("light_yellow_off");
 		lightYellow.getStyleClass().add("light_yellow_on");
 	}
 	
 	public void turnOffYellow(){
-		lightYellow.getStyleClass().remove("light_yellow_on");
+		lightYellow.getStyleClass().removeAll("light_yellow_on");
 		lightYellow.getStyleClass().add("light_yellow_off");
 	}
 	
 	public void turnOnGreen(){
-		lightGreen.getStyleClass().remove("light_green_off");
+		lightGreen.getStyleClass().removeAll("light_green_off");
 		lightGreen.getStyleClass().add("light_green_on");
 	}
 	
 	public void turnOffGreen(){
-		lightGreen.getStyleClass().remove("light_green_on");
+		lightGreen.getStyleClass().removeAll("light_green_on");
 		lightGreen.getStyleClass().add("light_green_off");
 	}
 
@@ -368,6 +474,30 @@ public class BoxNowController implements Initializable {
 
 	public void setWarning(int warning) {
 		this.warning = warning;
+	}
+
+	public AudioClip getClipStart() {
+		return clipStart;
+	}
+
+	public void setClipStart(AudioClip clipStart) {
+		this.clipStart = clipStart;
+	}
+
+	public AudioClip getClipWarning() {
+		return clipWarning;
+	}
+
+	public void setClipWarning(AudioClip clipWarning) {
+		this.clipWarning = clipWarning;
+	}
+
+	public AudioClip getClipEnd() {
+		return clipEnd;
+	}
+
+	public void setClipEnd(AudioClip clipEnd) {
+		this.clipEnd = clipEnd;
 	}
 
 }

@@ -29,8 +29,8 @@
                   <Button layoutX="230.0" layoutY="220.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" styleClass="buttonPanel" text="Timer 6" AnchorPane.rightAnchor="15.0" />
                   
                   <Button layoutX="15.0" layoutY="285.0" mnemonicParsing="false" onAction="#actionStart" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="START" AnchorPane.leftAnchor="15.0" />
-                  <Button layoutX="110.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="PAUSE" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
-                  <Button layoutX="230.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="STOP" AnchorPane.rightAnchor="15.0" />
+                  <Button layoutX="110.0" layoutY="285.0" mnemonicParsing="false" onAction="#actionPause" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="PAUSE" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
+                  <Button layoutX="230.0" layoutY="285.0" mnemonicParsing="false" onAction="#actionStop" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="STOP" AnchorPane.rightAnchor="15.0" />
                   
                   <Button layoutX="15.0" layoutY="325.0" mnemonicParsing="false" onAction="#actionConfig" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="CONFIG" AnchorPane.leftAnchor="15.0" />
                   <Button layoutX="110.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" styleClass="buttonPanel" text="RESET" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" />
