@@ -236,7 +236,7 @@ public class BoxNowController implements Initializable {
 		
 		ss = getCurrTime();
 		
-		if(ss > 60){
+		if(ss > 59){
 			mm = ss / 60;
 			ss = ss - (mm * 60);
 		}
@@ -255,12 +255,12 @@ public class BoxNowController implements Initializable {
 		
 		ss = getCurrTotal();
 		
-		if(ss > 3600){
+		if(ss > 3599){
 			hh = ss / 3600;
 			ss = ss - (hh * 3600);
 		}
 		
-		if(ss > 60){
+		if(ss > 59){
 			mm = ss / 60;
 			ss = ss - (mm * 60);
 		}			
